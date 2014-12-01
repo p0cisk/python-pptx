@@ -375,7 +375,10 @@ class _SlideShapeTree(BaseShapeTree):
         id_ = self._next_shape_id
         ph_type = layout_placeholder.ph_type
         orient = layout_placeholder.orient
-        name = self._next_ph_name(ph_type, id_, orient)
+        if layout_placeholder.name:
+            name = layout_placeholder.name
+        else:
+            name = self._next_ph_name(ph_type, id_, orient)
         sz = layout_placeholder.sz
         idx = layout_placeholder.idx
 
